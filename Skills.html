@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Hilman</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #141E30, #243B55);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #34495e;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-bottom: 3px solid #2ecc71;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .menu a {
+            font-family: 'Verdana', sans-serif;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav .menu a:hover {
+            background-color: #2ecc71;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        nav .menu a:active {
+            transform: scale(1);
+            background-color: #27ae60;
+        }
+
+        /* Title Section */
+        .title-section {
+            text-align: center;
+            margin: 50px 0 30px;
+            animation: fade-in-title 2s ease-in-out;
+        }
+
+        .title-section h1 {
+            font-size: 50px;
+            color: #2ecc71;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .title-section p {
+            font-size: 20px;
+            color: #f4f4f4;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @keyframes fade-in-title {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Skills Section */
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px;
+            justify-items: center;
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            background-color: #1e2a38;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2ecc71;
+            text-transform: uppercase;
+        }
+
+        .skill-card p {
+            font-size: 16px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .skill-card ol {
+            text-align: left;
+            list-style-type: decimal;
+            margin-left: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .skill-card ol li {
+            margin: 8px 0;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .skills-section {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .skills-section {
+                grid-template-columns: 1fr; /* 1 card per row on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="brand">Hilman's Portfolio</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="Aboutme.html">About Me</a>
+            <a href="Skills.html">Skills</a>
+            <a href="Experience.html">Experience</a>
+            <a href="Education.html">Education</a>
+            <a href="Gallery.html">Gallery</a>
+
+        </div>
+    </nav>
+
+    <!-- Title Section -->
+    <section class="title-section">
+        <h1>My Skills</h1>
+         </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="skill-card">
+            <h3>Software Development</h3>
+            <p>Designing user-friendly interfaces, creating reports, and automating tasks to improve efficiency in projects.</p>
+            <ol>
+                <li>Frontend Development: HTML, CSS, JavaScript</li>
+                <li>Backend Development: PHP, MySQL</li>
+            </ol>
+        </div>
+        <div class="skill-card">
+            <h3>Design Posters</h3>
+            <p>Skilled in Canva, creating official posters, magazines, and impactful designs during my internship at PPD.</p>
+            <ol>
+                <li>Graphic Design with Canva</li>
+                <li>Print Materials: Posters, Brochures</li>
+                <li>Magazine Layout Design</li>
+            </ol>
+        </div>
+        <div class="skill-card">
+            <h3>Data Analysis</h3>
+            <p>Experienced in Excel for organizing, analyzing, and identifying trends in datasets for data-driven decisions.</p>
+            <ol>
+                <li>Data Cleaning & Organization</li>
+                <li>Pivot Tables & Charts</li>
+                <li>Visualization & Trend Analysis</li>
+            </ol>
+        </div>
+        <div class="skill-card">
+            <h3>Communication</h3>
+            <p>Strong interpersonal skills with a proven ability to collaborate and present ideas effectively.</p>
+            <ol>
+                <li>Clear Presentation Skills</li>
+                <li>Team Collaboration</li>
+                <li>Written & Verbal Communication</li>
+            </ol>
+        </div>
+        <div class="skill-card">
+            <h3>Project Management</h3>
+            <p>Coordinating tasks and ensuring deadlines are met with efficient time management and leadership.</p>
+            <ol>
+                <li>Task Scheduling</li>
+                <li>Team Management</li>
+                <li>Meeting Deadlines</li>
+            </ol>
+        </div>
+        <div class="skill-card">
+            <h3>Critical Thinking</h3>
+            <p>Proficient in analyzing problems, devising innovative solutions, and thinking strategically in high-pressure situations.</p>
+            <ol>
+                <li>Problem-Solving</li>
+                <li>Strategic Thinking</li>
+                <li>Opportunity Identification</li>
+            </ol>
+        </div>
+    </section>
+</body>
+</html>
