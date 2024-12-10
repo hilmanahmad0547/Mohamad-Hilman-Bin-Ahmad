@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Quicksand:wght@300;500&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        
+         {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: url('background4.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav .brand {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .menu a {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav .menu a:hover {
+            background-color: #16a085;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        nav .menu a:active {
+            transform: scale(1);
+            background-color: #1abc9c;
+            transition: transform 0.1s ease, background-color 0.1s ease;
+        }
+
+        /* Gallery Title */
+        .gallery-title h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            color: #ff99cc;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fade-in 1.5s ease-in-out;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin: 50px auto;
+            max-width: 1200px;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .gallery-section h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            text-transform: uppercase;
+            text-align: center;
+            animation: slide-in 1.5s ease-in-out;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #ffb6c1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fade-in-images 1.5s ease-in-out forwards;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        /* Animations */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-in-images {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav .menu a {
+                font-size: 0.9rem;
+            }
+
+            .gallery-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery img {
+                height: 200px;
+            }
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            text-transform: uppercase;
+        }
+
+        .video-container {
+            background-color: rgba(255, 105, 180, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="brand">Hilman's Portfolio</div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="AboutMe.html">About Me</a>
+            <a href="Family.html">Family</a>
+            <a href="Experience.html">Experience</a>
+            <a href="Education.html">Education</a>
+            <a href="Gallery.html">Gallery</a>
+        </div>
+    </nav>
+
+    <!-- Gallery Title -->
+    <div class="gallery-title">
+        <h1>Gallery</h1>
+    </div>
+
+    <!-- Gallery Sections -->
+    <section class="gallery-section">
+        <h2>Family</h2>
+        <div class="gallery">
+            <img src="family1.jpeg" alt="Family 1" onclick="openLightbox(this)">
+            <img src="family2.jpeg" alt="Family 2" onclick="openLightbox(this)">
+            <img src="family3.jpeg" alt="Family 3" onclick="openLightbox(this)">
+            <img src="family4.jpeg" alt="Family 4" onclick="openLightbox(this)">
+            <img src="family5.jpeg" alt="Family 5" onclick="openLightbox(this)">
+            <img src="family6.jpeg" alt="Family 6" onclick="openLightbox(this)">
+            <img src="family7.jpeg" alt="Family 7" onclick="openLightbox(this)">
+            <img src="family8.jpeg" alt="Family 8" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Classmate</h2>
+        <div class="gallery">
+            <img src="classmate1.jpeg" alt="Classmate 1" onclick="openLightbox(this)">
+            <img src="classmate2.jpeg" alt="Classmate 2" onclick="openLightbox(this)">
+            <img src="classmate3.jpeg" alt="Classmate 3" onclick="openLightbox(this)">
+            <img src="classmate4.jpeg" alt="Classmate 4" onclick="openLightbox(this)">
+            <img src="classmate5.jpeg" alt="Classmate 5" onclick="openLightbox(this)">
+            <img src="classmate6.jpeg" alt="Classmate 6" onclick="openLightbox(this)">
+            <img src="classmate7.jpeg" alt="Classmate 7" onclick="openLightbox(this)">
+            <img src="classmate8.jpeg" alt="Classmate 8" onclick="openLightbox(this)">
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>View</h2>
+        <div class="gallery">
+            <img src="sunset1.jpeg" alt="View 1" onclick="openLightbox(this)">
+            <img src="sunset2.jpeg" alt="View 2" onclick="openLightbox(this)">
+            <img src="sunset3.jpeg" alt="View 3" onclick="openLightbox(this)">
+            <img src="sunset4.jpeg" alt="View 4" onclick="openLightbox(this)">
+            <img src="sunset5.jpeg" alt="View 5" onclick="openLightbox(this)">
+            <img src="sunset6.jpeg" alt="View 6" onclick="openLightbox(this)">
+           <img src="sunset7.jpeg" alt="View 7" onclick="openLightbox(this)">
+            <img src="sunset8.jpeg" alt="View 8" onclick="openLightbox(this)">
+        </div>
+    </section>
+     
+       <section class="gallery-section">
+    <h2>Random</h2>
+    <div class="gallery">
+        <img src="random1.jpeg" alt="Random 1" onclick="openLightbox(this)">
+        <img src="random2.jpeg" alt="Random 2" onclick="openLightbox(this)">
+        <img src="random3.jpeg" alt="Random 3" onclick="openLightbox(this)">
+        <img src="random4.jpeg" alt="Random 4" onclick="openLightbox(this)">
+        <img src="random5.jpeg" alt="Random 5" onclick="openLightbox(this)">
+        <img src="random6.jpeg" alt="Random 6" onclick="openLightbox(this)">
+        <img src="random7.jpeg" alt="Random 7" onclick="openLightbox(this)">
+        <img src="random8.jpeg" alt="Random 8" onclick="openLightbox(this)">
+    </div>
+</section>
+
+
+    <section class="gallery-section">
+        <h2>Friend</h2>
+        <div class="gallery">
+            <img src="gf1.jpeg" alt="Friend 1" onclick="openLightbox(this)">
+            <img src="gf2.jpeg" alt="Friend 2" onclick="openLightbox(this)">
+            <img src="gf3.jpeg" alt="Friend 3" onclick="openLightbox(this)">
+            <img src="gf4.jpeg" alt="Friend 4" onclick="openLightbox(this)">
+            <img src="gf5.jpeg" alt="Friend 5" onclick="openLightbox(this)">
+            <img src="gf6.jpeg" alt="Friend 6" onclick="openLightbox(this)">
+            <img src="gf7.jpeg" alt="Friend 7" onclick="openLightbox(this)">
+            <img src="gf8.jpeg" alt="Friend 8" onclick="openLightbox(this)">
+
+        </div>
+    </section>
+
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h2>Watch My Video</h2>
+        <div class="video-container">
+            <video width="100%" height="auto" controls>
+                <source src="video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">X</span>
+        <img id="lightboxImage" src="" alt="Lightbox Image">
+    </div>
+
+    <script>
+        function openLightbox(image) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightboxImage').src = image.src;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
